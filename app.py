@@ -28,7 +28,16 @@ while True:
 	
 	track = pygame.transform.scale(pygame.image.load("assets/track2.png"), (1280, 720))
 	car.handle_keys()
+	car_center = car.rect.center  # merkezin koordinatları
+
 	screen.blit(track, (0,0))
+	# Arabayla çarpışma kontrolü
+	car_center = car.rect.center  # merkezin koordinatları
+	pixel_color = track.get_at(car_center)[:3]  # sadece RGB, alpha yok
+
+	if pixel_color != (255,255, 255):  # pist dışıysa
+		car.reset_position()
+
 	car.draw(screen)
 
 	
