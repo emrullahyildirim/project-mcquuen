@@ -17,7 +17,8 @@ if start_pos is None:
     raise SystemExit
 
 
-car = Car()
+car = Car(*start_pos)  # kırmızı nokta neredeyse oraya başlasın
+
 
 while True:
 	for event in pygame.event.get():
